@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+}
+
+.label {
+  position: relative;
+  top: 1px;
+
+  font-size: 12px;
+  line-height: 17px;
+  color: rgba(26, 26, 26, 0.5);
+  cursor: pointer;
+}
+
+.field {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.toggle {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  min-height: 20px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    left: 0;
+    top: 50%;
+
+    height: 20px;
+    width: 34px;
+    
+    transform: translateY(-50%);
+    border-radius: 10px;
+    background: linear-gradient(90deg, #4FD1C5 0%, #5629E1 100%);
+  }
+
+  &::after {
+    top: 50%;
+    left: 1px;
+    height: 17px;
+    width: 17px;
+
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(-50%);
+    transition: all .2s ease;
+  }
+}
+
+.field:checked + .toggle {
+  &::after {
+    left: 16px;
+  }
+}
